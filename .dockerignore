@@ -1,0 +1,34 @@
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.py[cod]
+*.egg-info
+dist
+build
+.idea
+.env
+
+# 测试
+tests/
+pytest.ini
+test_token.txt
+
+# 文档
+doc/
+DESIGN.md
+README.md
+
+# 前端（node_modules 排除，源码需要构建）
+web/node_modules/
+web/dist/
+web/.vscode
+
+# Docker
+Dockerfile
+docker-compose*.yml
+
+# 敏感信息
+config.json
+doc/real-info-for-test.md

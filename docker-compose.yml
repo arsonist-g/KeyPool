@@ -1,0 +1,12 @@
+services:
+  keypool:
+    image: ghcr.io/arsonist-g/keypool:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - keypool-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  keypool-data:

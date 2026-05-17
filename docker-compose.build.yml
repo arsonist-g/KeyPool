@@ -1,0 +1,13 @@
+# 本地构建版本
+services:
+  keypool:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - keypool-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  keypool-data:

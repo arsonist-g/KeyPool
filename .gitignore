@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+data/
+*.db
+.env
+.idea/
+
+# 敏感信息
+doc/real-info-for-test.md
+test_token.txt
+config.json
+tests/test_integration.py
+/web/.vscode
+doc/feature-implementation-report.md
+doc/architecture.md

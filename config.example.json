@@ -1,0 +1,21 @@
+{
+  "host": "0.0.0.0",
+  "port": 8000,
+  "admin_key": "changeme",
+  "database": "data/keypool.db",
+  "retry_limit": 3,
+  "platforms": {
+    "tavily": {
+      "enabled": true,
+      "upstream_base_url": "https://mcp.tavily.com"
+    },
+    "context7": {
+      "enabled": true,
+      "upstream_base_url": "https://mcp.context7.com"
+    },
+    "exa": {
+      "enabled": true,
+      "upstream_base_url": "https://api.exa.ai"
+    }
+  }
+}
