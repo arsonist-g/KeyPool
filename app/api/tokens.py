@@ -27,7 +27,7 @@ def _token_to_response(token: ProjectToken) -> dict:
 @router.get("")
 def list_tokens(
     page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
+    page_size: int = Query(20, ge=1),
     db: DBSession = Depends(get_db),
 ):
     query = db.query(ProjectToken)

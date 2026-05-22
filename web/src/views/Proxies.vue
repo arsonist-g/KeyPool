@@ -88,21 +88,21 @@ async function importProxies() {
   try {
     const lines = importForm.value.proxiesText.split('\n').filter(l => l.trim())
     if (lines.length === 0) return
-    const allProxies = await api.getProxies(1, 9999)
-    const existing = new Set(allProxies.items.map(p => `${p.host}:${p.port}`))
+    const seen = new Set<string>()
     let added = 0
     let duplicates = 0
     for (const line of lines) {
       const parsed = parseProxyLine(line)
       if (!parsed) continue
-      if (existing.has(`${parsed.host}:${parsed.port}`)) {
+      const key = `${parsed.host}:${parsed.port}`
+      if (seen.has(key)) {
         duplicates++
         continue
       }
+      seen.add(key)
       try {
         await api.createProxy(parsed as any)
         added++
-        existing.add(`${parsed.host}:${parsed.port}`)
       } catch (e: any) {
         if (e?.status === 409) {
           duplicates++

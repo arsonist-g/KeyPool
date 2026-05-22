@@ -12,7 +12,7 @@ router = APIRouter(prefix="/admin/proxies", tags=["proxies"], dependencies=[Depe
 @router.get("")
 def list_proxies(
     page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
+    page_size: int = Query(20, ge=1),
     db: DBSession = Depends(get_db),
 ):
     query = db.query(Proxy)
